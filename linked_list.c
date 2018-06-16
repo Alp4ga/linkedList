@@ -4,20 +4,8 @@
 
 /* Null value and EXIT_FAILURE */
 #include <stdlib.h>
-/* only for printf */
-#include <stdio.h>
 
 #include "linked_list.h"
-
-/*
-** print()
-*/
-void print(list_t *root)
-{
-	for (list_t *list = root->next; list != root; list = list->next) {
-		printf("Value %d\n", (*(int *)list->data));
-	}
-}
 
 /*
 ** Alloc root ptr and set data value

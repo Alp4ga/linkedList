@@ -11,8 +11,6 @@ typedef struct list_s {
 	struct list_s *previous;
 } list_t;
 
-void print(list_t *);
-
 /* Initialization */
 list_t *constructor();
 void destructor(list_t *);

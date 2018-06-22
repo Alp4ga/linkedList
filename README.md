@@ -1,6 +1,6 @@
-#LINKED LIST
+<h1>Linked list</h1>
 
-Linked list generique
+<h2>Linked list generique</h2>
 
 Use case:
 
@@ -26,33 +26,33 @@ int main(int ac, const char *av[])
 }
 </code></pre>
 
-##All Functions:
+<h2>All Functions:</h2>
 
-###Initialization
+<h3>Initialization</h3>
 list_t *constructor();
 void destructor(list_t *);
 
-###Add
+<h3>Add</h3>
 void push_front(list_t **, void *);
 void push_back(list_t **, void *);
 void push_position(list_t **, size_t, void *);
 
-###Delete
+<h3>Delete</h3>
 void pop_front(list_t **);
 void pop_back(list_t **);
 void pop_position(list_t **, size_t);
 void pop_ptr(list_t **, void *);
 
-###Get
+<h3>Get</h3>
 void *get_front(list_t *);
 void *get_back(list_t *);
 void *get_position(list_t *, size_t);
 
-###Capacity
+<h3>Capacity</h3>
 bool empty(list_t *);
 size_t size(list_t *);
 
-##use:
+<h2>use:</h2>
 
 With gcc:
 	gcc *.c -L{PATH_LIB_DIR} -llinked -I{PATH_INCLUDE_DIR}

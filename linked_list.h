@@ -7,6 +7,7 @@
 
 typedef struct list_s {
 	void *data;
+	size_t n_element;
 	struct list_s *next;
 	struct list_s *previous;
 } list_t;

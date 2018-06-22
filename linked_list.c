@@ -19,6 +19,7 @@ list_t *constructor()
 	root->next = root;
 	root->previous = root;
 	root->data = NULL;
+	root->n_element = 0;
 	return (root);
 }
 
@@ -52,6 +53,7 @@ void push_front(list_t **root, void *data)
 	new->previous = *root;
 	(*root)->next->previous = new;
 	(*root)->next = new;
+	++(*root)->n_element;
 }
 
 /*
@@ -68,6 +70,7 @@ void push_back(list_t **root, void *data)
 	new->previous = (*root)->previous;
 	(*root)->previous->next = new;
 	(*root)->previous = new;
+	++(*root)->n_element;
 }
 
 /*
@@ -99,6 +102,7 @@ void push_position(list_t **root, size_t position, void *data)
 	new->previous = tmp->previous;
 	tmp->previous->next = new;
 	tmp->previous = new;
+	++(*root)->n_element;
 }
 
 /*
@@ -113,6 +117,7 @@ void pop_front(list_t **root)
 	(*root)->next = save->next;
 	save->next->previous = *root;
 	free(save);
+	--(*root)->n_element;
 }
 
 /*
@@ -127,6 +132,7 @@ void pop_back(list_t **root)
 	(*root)->previous = save->previous;
 	save->previous->next = (*root);
 	free(save);
+	--(*root)->n_element;
 }
 
 /*
@@ -153,6 +159,7 @@ void pop_position(list_t **root, size_t position)
 	tmp->previous->next = tmp->next;
 	tmp->next->previous = tmp->previous;
 	free(tmp);
+	--(*root)->n_element;
 }
 
 /*
@@ -173,6 +180,7 @@ void pop_ptr(list_t **root, void *data)
 	tmp->previous->next = tmp->next;
 	tmp->next->previous = tmp->previous;
 	free(tmp);
+	--(*root)->n_element;
 }
 
 /*
@@ -220,9 +228,5 @@ bool empty(list_t *root)
 
 size_t size(list_t *root)
 {
-	size_t size = 0;
-
-	for (list_t *list = root->next; list != root; list = list->next)
-		++size;
-	return (size);
+	return root->n_element;
 }
